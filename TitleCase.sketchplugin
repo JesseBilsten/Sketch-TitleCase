@@ -1,0 +1,41 @@
+// (ctrl cmd u)
+// Capitalize the first letter of each word in a text block.
+
+// Display an error alert
+function alert(msg, title) {
+  title = title || "alert";
+  var app = [NSApplication sharedApplication];
+  [app displayDialog:msg withTitle:title];
+}
+
+// Takes string and returns it title case
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+// Display an error alert and exit
+function invalidSelection() {
+  alert('Please make sure the layer is a text layer.', 'title');
+  throw(nil); // exit the plugin
+}
+
+// Main
+
+// Begin validation of selection
+// Ensure there's only one layer selected
+if ([selection count] != 1) {
+  invalidSelection();
+}
+
+// Ensure that layer is a text layer
+var layer = [selection objectAtIndex:0];
+if (!(layer instanceof MSTextLayer)) {
+  invalidSelection();
+} else {
+  var currentText = toTitleCase([layer stringValue]);
+  var text = [doc askForUserInput:"Converted to Title Case" initialValue:currentText];
+
+  [layer setStringValue: text];
+  [layer adjustFrameToFit];
+  //Done!
+}
+
