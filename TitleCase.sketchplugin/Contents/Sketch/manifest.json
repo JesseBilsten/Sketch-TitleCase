@@ -1,0 +1,23 @@
+{
+  "author" : "Jesse Bilsten",
+  "commands" : [
+    {
+      "script" : "title_case.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift u",
+      "name" : "Title Case",
+      "identifier" : "titlecase"
+    },
+  ],
+  "menu": {
+    "isRoot": true,
+    "items": [
+      "titlecase",
+    ],
+  },
+  "identifier" : "com.jessebilsten.sketch.titlecase",
+  "version" : "1.0",
+  "description" : "A plugin to change a selected text layer into Title Case",
+  "authorEmail" : "jesse@bilsten.net",
+  "name" : "Title Case"
+}

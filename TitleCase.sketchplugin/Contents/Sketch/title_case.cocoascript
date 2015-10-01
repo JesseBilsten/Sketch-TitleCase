@@ -1,0 +1,30 @@
+@import "library.cocoascript"
+
+// (ctrl cmd u)
+// Capitalize the first letter of each word in a text block.
+
+var onRun = function(context) {
+  var selection = context.selection;  // An NSArray of MSLayers
+  var doc       = context.document;   // the current document (MSDocument)
+  var page      = [doc currentPage];  // the current page (MSPage)
+  var layers    = [page children];    // A flattened array (NSArray) of all layers in `page`
+
+  // Begin validation of selection
+  // Ensure there's only one layer selected
+  if ([selection count] != 1) {
+    Library.invalidSelection();
+  }
+
+  // Ensure that layer is a text layer
+  var layer = [selection objectAtIndex:0];
+  if (!(layer instanceof MSTextLayer)) {
+    Library.invalidSelection();
+  } else {
+    var currentText = Library.toTitleCase([layer stringValue]);
+    var text = [doc askForUserInput:"Converted to Title Case" initialValue:currentText];
+
+    [layer setStringValue: text];
+    [layer adjustFrameToFit];
+    //Done!
+  }
+}
