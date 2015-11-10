@@ -1,5 +1,5 @@
 {
-    "name": "Rename It",
-    "description": "Sketch plugin to rename layers like a boss. It’s a port of the awesome photoshop plugin called Renamy",
-    "tags": ["rename", "layers", "batch rename"]
+    "name": "TitleCase",
+    "description": "Sketch plugin to change the case of a string of words.",
+    "tags": ["typography", "title", "titlecase", "capitalize"]
 }
