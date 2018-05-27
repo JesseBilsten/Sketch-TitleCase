@@ -7,13 +7,13 @@
       "shortcut" : "cmd shift u",
       "name" : "Title Case",
       "identifier" : "titlecase"
-    },
+    }
   ],
   "menu": {
     "isRoot": true,
     "items": [
-      "titlecase",
-    ],
+      "titlecase"
+    ]
   },
   "identifier" : "com.jessebilsten.sketch.titlecase",
   "version" : "1.0",
